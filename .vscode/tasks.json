@@ -1,0 +1,20 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "copy-rose-image",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"copy",
+				"/Y",
+				"pngtree-3d-rendering-of-a-lush-wall-of-pink-rose-flowers-image_3817454.jpg",
+				"images\\pngtree-3d-rendering-of-a-lush-wall-of-pink-rose-flowers-image_3817454.jpg"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
