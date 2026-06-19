@@ -13,6 +13,11 @@
         box-sizing: border-box;
       }
 
+      html {
+        width: 100%;
+        min-width: 320px;
+      }
+
       body {
         min-height: 100vh;
         overflow-x: hidden;
@@ -515,10 +520,10 @@
       .main-content {
         text-align: center;
         z-index: 10;
-        padding: 20px;
+        padding: clamp(10px, 2vw, 20px);
         opacity: 0;
         transition: opacity 2s ease;
-        max-width: 1000px;
+        max-width: 1340px;
         width: 100%;
       }
 
@@ -528,7 +533,7 @@
 
       .title {
         font-family: "Great Vibes", cursive;
-        font-size: 4.8rem;
+        font-size: clamp(2.5rem, 7vw, 4.8rem);
         color: #ffffff;
         text-shadow:
           0 0 18px rgba(0, 0, 0, 0.55),
@@ -551,7 +556,7 @@
 
       .subtitle {
         font-family: "Dancing Script", cursive;
-        font-size: 2.8rem;
+        font-size: clamp(1.3rem, 4vw, 2.8rem);
         color: #ffffff;
         margin-bottom: 30px;
         animation: fadeInUp 1s ease 0.6s both;
@@ -561,12 +566,13 @@
 
       .date-badge {
         display: inline-block;
-        padding: 10px 30px;
+        max-width: 100%;
+        padding: clamp(8px, 1.2vw, 10px) clamp(16px, 3vw, 30px);
         background: linear-gradient(135deg, #ffb703, #ff4d6d 55%, #7b61ff);
         color: rgba(0, 0, 0, 0.95);
         font-weight: 700;
         font-family: "Pacifico", cursive;
-        font-size: 2.5rem;
+        font-size: clamp(1.35rem, 4vw, 2.5rem);
         border-radius: 50px;
         margin-bottom: 20px;
         box-shadow: 0 5px 25px rgba(255, 20, 147, 0.5);
@@ -589,20 +595,21 @@
 
       .wish-card {
         margin: 0 auto 26px;
-        max-width: 720px;
-        padding: 18px 22px;
-        border-radius: 24px;
+        width: 100%;
+        max-width: 760px;
+        padding: clamp(14px, 2.4vw, 20px) clamp(16px, 3vw, 28px);
+        border-radius: 18px;
         background: linear-gradient(
           180deg,
-          rgba(0, 0, 0, 0.65) 0%,
-          rgba(0, 0, 0, 0.52) 40%,
-          rgba(0, 0, 0, 0.48) 100%
+          rgba(0, 112, 192, 0.88) 0%,
+          rgba(0, 86, 168, 0.84) 52%,
+          rgba(0, 64, 140, 0.9) 100%
         );
-        border: 1px solid rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(210, 238, 255, 0.58);
         backdrop-filter: blur(18px) saturate(1.05);
         box-shadow:
-          0 20px 60px rgba(0, 0, 0, 0.45),
-          inset 0 1px 0 rgba(255, 255, 255, 0.03);
+          0 20px 60px rgba(0, 46, 102, 0.38),
+          inset 0 1px 0 rgba(255, 255, 255, 0.22);
         color: #ffffff;
         animation:
           fadeInUp 1s ease 1s both,
@@ -611,15 +618,15 @@
 
       .wish-card .wish-title {
         font-family: "Pacifico", cursive;
-        font-size: 1.75rem;
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
         color: #ffffff;
         margin-bottom: 8px;
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
       }
 
       .wish-card .wish-text {
-        font-size: 1.6rem;
-        line-height: 1.8;
+        font-size: clamp(1.08rem, 3vw, 1.6rem);
+        line-height: 1.65;
         color: rgba(255, 255, 255, 0.98);
         white-space: pre-line;
         text-shadow: 0 1px 0 rgba(255, 255, 255, 0.03);
@@ -637,10 +644,10 @@
       }
 
       .rose-hero {
-        width: min(1300px, 98vw);
+        width: min(1300px, 100%);
         min-height: auto;
         margin: 0 auto 18px;
-        border-radius: 28px;
+        border-radius: clamp(16px, 2.2vw, 28px);
         overflow: hidden;
         position: relative;
         border: 1px solid rgba(255, 255, 255, 0.1);
@@ -662,8 +669,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap: 22px;
-        padding: 58px 56px 62px;
+        gap: clamp(14px, 2vw, 22px);
+        padding: clamp(14px, 4.4vw, 58px) clamp(10px, 4.3vw, 56px)
+          clamp(18px, 4.6vw, 62px);
       }
 
       .rose-header {
@@ -675,11 +683,11 @@
       }
 
       .rose-inner {
-        width: calc(100% - 180px);
+        width: min(100%, 980px);
         max-width: 980px;
         background: transparent;
         border-radius: 20px;
-        padding: 18px;
+        padding: clamp(8px, 1.8vw, 18px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -689,12 +697,17 @@
       .rose-heading-card {
         width: 100%;
         max-width: 940px;
-        padding: 16px 30px 10px;
+        padding: clamp(12px, 2vw, 16px) clamp(14px, 3vw, 30px)
+          clamp(10px, 1.6vw, 12px);
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 128, 214, 0.88),
+          rgba(0, 83, 170, 0.82)
+        );
+        border: 1px solid rgba(211, 240, 255, 0.55);
         backdrop-filter: none;
-        box-shadow: none;
+        box-shadow: 0 16px 45px rgba(0, 54, 118, 0.26);
       }
 
       .rose-heading-card .date-badge {
@@ -703,9 +716,9 @@
 
       .rose-heading-card .title {
         margin-bottom: 8px;
-        white-space: nowrap;
-        font-size: clamp(2.7rem, 3.9vw, 4.3rem);
-        line-height: 1;
+        overflow-wrap: anywhere;
+        font-size: clamp(2.15rem, 5vw, 4.3rem);
+        line-height: 1.05;
       }
 
       .rose-heading-card .subtitle {
@@ -715,10 +728,10 @@
       .photo-inner {
         width: 100%;
         border-radius: 14px;
-        padding: 18px;
+        padding: clamp(8px, 1.8vw, 18px);
         background: url("images/16-2.jpg") center center / cover no-repeat;
         box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.12);
-        border: 8px solid rgba(255, 255, 255, 0.12);
+        border: clamp(4px, 1vw, 8px) solid rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(2px);
       }
 
@@ -791,9 +804,9 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 12px;
+        gap: clamp(6px, 1.4vw, 12px);
         width: min(980px, 100%);
-        height: 340px;
+        height: clamp(240px, 35vw, 340px);
         margin: 0 auto;
       }
 
@@ -1129,32 +1142,115 @@
       }
 
       /* ===== RESPONSIVE ===== */
+      @media (max-width: 900px) {
+        .rose-hero {
+          width: 100%;
+        }
+
+        .rose-inner {
+          gap: 16px;
+        }
+
+        .photo-grid {
+          height: clamp(230px, 48vw, 320px);
+        }
+      }
+
       @media (max-width: 600px) {
+        body {
+          justify-content: flex-start;
+        }
+
+        .main-content {
+          padding: 8px;
+        }
+
         .title {
-          font-size: 2.5rem;
           white-space: normal;
         }
+
         .subtitle {
-          font-size: 1.3rem;
+          margin-bottom: 18px;
         }
+
+        .date-badge {
+          border-radius: 24px;
+          line-height: 1.15;
+          white-space: normal;
+        }
+
         .photo-grid {
           width: 100%;
-          height: 260px;
-          gap: 8px;
+          height: clamp(230px, 74vw, 300px);
         }
 
         .intro-overlay h1 {
-          font-size: 2.5rem;
+          max-width: 90vw;
+          font-size: clamp(2.2rem, 12vw, 2.8rem);
+          line-height: 1.05;
+          text-align: center;
+        }
+
+        .intro-overlay p {
+          max-width: 86vw;
+          font-size: clamp(1.05rem, 5vw, 1.35rem);
+          line-height: 1.35;
+          text-align: center;
         }
 
         .rose-hero {
-          min-height: 330px;
-          padding: 14px;
+          min-height: auto;
+          border-radius: 16px;
         }
 
         .rose-heading-card .title {
           white-space: normal;
-          font-size: 2.4rem;
+        }
+
+        .wish-card {
+          margin-bottom: 10px;
+        }
+
+        .music-btn {
+          right: 14px;
+          bottom: 14px;
+          width: 48px;
+          height: 48px;
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .rose-inner {
+          gap: 12px;
+          padding: 4px;
+        }
+
+        .rose-heading-card {
+          border-radius: 14px;
+        }
+
+        .photo-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+          height: clamp(360px, 118vw, 460px);
+        }
+
+        .photo-cell:nth-child(1),
+        .photo-cell:nth-child(2),
+        .photo-cell:nth-child(3),
+        .photo-cell:nth-child(4),
+        .photo-cell:nth-child(5) {
+          grid-column: auto;
+          grid-row: auto;
+        }
+
+        .photo-cell:nth-child(5) {
+          grid-column: 1 / 3;
+        }
+
+        .wish-card .wish-text {
+          line-height: 1.55;
         }
       }
     </style>
